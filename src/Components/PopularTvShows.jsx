@@ -10,8 +10,8 @@ const PopularTvShows = () => {
     try {
       const res = await fetch(`${url}${apiKey}`);
       const data = await res.json();
-     console.log(data.results)
       setMovies(data.results);
+      console.log(data.results);
     } catch (error) {
       console.log(error);
     }
@@ -28,7 +28,7 @@ const PopularTvShows = () => {
         {movies.map((movie) => {
           return (
             <Link key={movie.id} to="/tvdetails">
-              <div  className="card">
+              <div className="card">
                 <img
                   src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
                   alt=""
