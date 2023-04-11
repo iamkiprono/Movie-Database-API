@@ -5,12 +5,12 @@ const Navbar = () => {
     <div>
       <nav>
         <div className="logo">
-          <Link to="movies">
+          <Link to="/">
             <h2>KiBrono📽️ </h2>
           </Link>
         </div>
         <div className="navlinks">
-          <NavLink to="movies">Movies</NavLink>
+          <NavLink to="/">Movies</NavLink>
           <NavLink to="tvshows">TV Shows</NavLink>
         </div>
       </nav>
