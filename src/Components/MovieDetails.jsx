@@ -1,16 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const MovieDetails = () => {
   const [details, setDetails] = useState({});
+
   const { id } = useParams();
+  console.log(id);
   const url = `https://api.themoviedb.org/3/movie/${id}?api_key=aeeb61963da597e184eba3a9b3377487`;
 
   const getSingleMovie = async () => {
-    const res = await fetch(url);
-    const data = await res.json();
-    console.log(data);
-    setDetails(data);
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+
+      console.log(data);
+      setDetails(data);
+    } catch (Error) {
+      setErr(Error.message);
+      console.log(Error.message);
+    }
   };
 
   useEffect(() => {
@@ -31,6 +39,7 @@ const MovieDetails = () => {
           <p>{details.release_date}</p>
           <p>{details.status}</p>
         </div>
+          <a target="_blank" href={details.homepage}>Visit </a>
       </div>
     </div>
   );
