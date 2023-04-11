@@ -12,9 +12,9 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="tvshows" element={<PopularTvShows />} />
           <Route path="movies" element={<PopularMovies />} />
           <Route path="movies/:id" element={<MovieDetails />} />
+          <Route path="tvshows" element={<PopularTvShows />} />
 
         </Routes>
       </BrowserRouter>
