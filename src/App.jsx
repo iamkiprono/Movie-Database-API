@@ -14,9 +14,8 @@ function App() {
         <Routes>
           <Route path="movies" element={<PopularMovies />} />
           <Route path="movies/:id" element={<MovieDetails />} />
-          <Route path="tvdetails" element={<TvDetails />} />
 
-          <Route path="/tvshows" element={<PopularTvShows />} />
+          <Route path="tvshows" element={<PopularTvShows />} />
         </Routes>
       </BrowserRouter>
     </div>
