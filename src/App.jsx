@@ -4,7 +4,7 @@ import PopularMovies from "./Components/PopularMovies";
 import PopularTvShows from "./Components/PopularTvShows";
 import Navbar from "./Components/Navbar";
 import MovieDetails from "./Components/MovieDetails";
-import TvDetails from "./Components/TvDetails";
+
 
 function App() {
   return (
@@ -12,10 +12,10 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
+          <Route path="tvshows" element={<PopularTvShows />} />
           <Route path="movies" element={<PopularMovies />} />
           <Route path="movies/:id" element={<MovieDetails />} />
 
-          <Route path="tvshows" element={<PopularTvShows />} />
         </Routes>
       </BrowserRouter>
     </div>
