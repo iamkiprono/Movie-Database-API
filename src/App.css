@@ -1,0 +1,7 @@
+.App {
+  background-image: radial-gradient(rgba(22, 6, 2, 0.5), rgba(10, 10, 9, 0.5)),
+    url("https://cinema.mu/wp-content/uploads/2019/07/banner-films.jpg");
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+}
