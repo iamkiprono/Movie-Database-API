@@ -6,19 +6,16 @@ import Navbar from "./Components/Navbar";
 import MovieDetails from "./Components/MovieDetails";
 import SearchResults from "./Components/SearchResults";
 
-
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />
         <Routes>
-          
           <Route path="/" element={<PopularMovies />} />
-          <Route path="/search" element={<SearchResults />} />
+          <Route path="search" element={<SearchResults />} />
           <Route path="movies/:id" element={<MovieDetails />} />
           <Route path="toprated" element={<TopRated />} />
-
         </Routes>
       </BrowserRouter>
     </div>

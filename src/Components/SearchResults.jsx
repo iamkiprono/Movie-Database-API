@@ -3,7 +3,7 @@ import Spinner from "./Spinner";
 
 const SearchResults = () => {
   const [search, setSearch] = useState("");
-  const [results, setResults] = useState(null);
+  const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const url =
     "https://api.themoviedb.org/3/search/movie?api_key=YOUR_API_KEY&query=SEARCH_QUERY";
