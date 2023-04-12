@@ -5,7 +5,6 @@ const TopRated = () => {
   const [movies, setMovies] = useState([]);
   const url = "https://api.themoviedb.org/3/movie/top_rated?api_key=";
   const apiKey = "aeeb61963da597e184eba3a9b3377487";
-  
 
   const getMovies = async () => {
     try {
