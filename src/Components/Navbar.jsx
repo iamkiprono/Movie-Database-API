@@ -1,4 +1,5 @@
 import { NavLink, Link } from "react-router-dom";
+import { FaSearch } from "react-icons/fa"
 
 const Navbar = () => {
   return (
@@ -12,7 +13,7 @@ const Navbar = () => {
         <div className="navlinks">
           <NavLink to="/">Movies</NavLink>
           <NavLink to="toprated">Top Rated</NavLink>
-          <NavLink to="search">Search</NavLink>
+          <NavLink to="search">{FaSearch}</NavLink>
         </div>
       </nav>
     </div>

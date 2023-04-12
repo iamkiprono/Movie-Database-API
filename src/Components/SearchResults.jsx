@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Spinner from "./Spinner";
+import { FaSearch } from "react-icons/fa";
 
 const SearchResults = () => {
   const [search, setSearch] = useState("");
@@ -60,8 +61,8 @@ const SearchResults = () => {
           value={"movies"}
           type="checkbox"
           onChange={(e) => {
-            setMovies(e.target.checked)
-            setSeries(false)
+            setMovies(e.target.checked);
+            setSeries(false);
           }}
         />{" "}
         <label>Movies</label>
@@ -70,8 +71,8 @@ const SearchResults = () => {
           value={"series"}
           type="checkbox"
           onChange={(e) => {
-            setSeries(e.target.checked)
-            setMovies(false)
+            setSeries(e.target.checked);
+            setMovies(false);
           }}
         />{" "}
         <label>TV Series</label>
