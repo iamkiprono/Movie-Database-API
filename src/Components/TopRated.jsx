@@ -33,7 +33,7 @@ const TopRated = () => {
                 src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                 alt=""
               />
-              <h3>{movie.name}</h3>
+              <h3>{movie.title}</h3>
               <h5>{movie.original_name}</h5>
               <p>{movie.first_air_date}</p>
               <p>{movie.vote_average}/10</p>

@@ -49,7 +49,7 @@ const SearchResults = () => {
                   />
                   <h3>{movie.name}</h3>
                   <p>{movie.release_date}</p>
-                  <p>{Math.round(movie.vote_average)}/10</p>
+                  <p>{!movie.vote_average? "Not rated": (`${Math.round(movie.vote_average)}/10`)}</p>
                   <p className="overview">{movie.overview}</p>
                 </div>
               );
