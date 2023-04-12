@@ -87,6 +87,7 @@ const SearchResults = () => {
                     alt=""
                   />
                   <h3>{movie.name}</h3>
+                  <h3>{movie.title}</h3>
                   <p>{movie.release_date}</p>
                   <p>
                     {!movie.vote_average
