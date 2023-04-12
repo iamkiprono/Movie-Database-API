@@ -3,18 +3,19 @@ import Spinner from "./Spinner";
 
 const SearchResults = () => {
   const [search, setSearch] = useState("");
-  const [checkValue, setCheckValue] = useState("");
+
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const [movies, setMovies] = useState(true);
+  const [series, setSeries] = useState(false);
 
   const apiKey = "aeeb61963da597e184eba3a9b3377487";
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
-    if (checkValue == "movies") {
-     
-
+    if (movies) {
       try {
         const res = await fetch(
           `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${search}`
@@ -26,7 +27,7 @@ const SearchResults = () => {
       } catch (error) {
         console.log(error);
       }
-    } else {
+    } else if (series) {
       try {
         const res = await fetch(
           `https://api.themoviedb.org/3/search/tv?api_key=${apiKey}&query=${search}`
@@ -38,6 +39,8 @@ const SearchResults = () => {
       } catch (error) {
         console.log(error);
       }
+    } else {
+      return;
     }
   };
   return (
@@ -53,18 +56,22 @@ const SearchResults = () => {
       </form>
       <div className="container">
         <input
+          checked={movies}
           value={"movies"}
           type="checkbox"
           onChange={(e) => {
-            setCheckValue(e.target.value);
+            setMovies(e.target.checked)
+            setSeries(false)
           }}
         />{" "}
         <label>Movies</label>
         <input
+          checked={series}
           value={"series"}
           type="checkbox"
           onChange={(e) => {
-            setCheckValue(e.target.value);
+            setSeries(e.target.checked)
+            setMovies(false)
           }}
         />{" "}
         <label>TV Series</label>
