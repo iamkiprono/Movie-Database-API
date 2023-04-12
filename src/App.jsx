@@ -4,6 +4,7 @@ import PopularMovies from "./Components/PopularMovies";
 import PopularTvShows from "./Components/PopularTvShows";
 import Navbar from "./Components/Navbar";
 import MovieDetails from "./Components/MovieDetails";
+import SearchResults from "./Components/SearchResults";
 
 
 function App() {
@@ -12,7 +13,9 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
+          
           <Route path="/" element={<PopularMovies />} />
+          <Route path="/search" element={<SearchResults />} />
           <Route path="movies/:id" element={<MovieDetails />} />
           <Route path="tvshows" element={<PopularTvShows />} />
 
