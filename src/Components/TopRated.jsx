@@ -18,7 +18,7 @@ const TopRated = () => {
       console.log(data.results);
     } catch (error) {
       setIsLoading(false);
-      console.log(error);
+      console.log(error); 
     }
   };
 
