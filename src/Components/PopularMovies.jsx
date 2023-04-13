@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import Spinner from "./Spinner";
 const PopularMovies = () => {
   const [movies, setMovies] = useState([]);
   const url = "https://api.themoviedb.org/3/movie/popular?api_key=";
   const apiKey = "aeeb61963da597e184eba3a9b3377487";
+  const [isLoading, setIsLoading] = useState(false);
 
   const getMovies = async () => {
+    setIsLoading(true);
     try {
       const res = await fetch(`${url}${apiKey}`);
       const data = await res.json();
       console.log(data.results);
 
       setMovies(data.results);
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
     }
   };
-
   useEffect(() => {
     getMovies();
   }, []);
@@ -26,6 +29,7 @@ const PopularMovies = () => {
     <div>
       <h2>Popular Movies</h2>
       <div className="container">
+        {isLoading ? <Spinner /> : ""}
         {movies.map((movie) => {
           return (
             <Link key={movie.id} to={`/movies/${movie.id}`}>

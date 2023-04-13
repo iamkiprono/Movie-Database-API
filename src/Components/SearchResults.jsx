@@ -77,9 +77,8 @@ const SearchResults = () => {
         />{" "}
         <label>TV Series</label>
         {isLoading ? <Spinner /> : ""}
-        {results === []
-          ? "No results"
-          : results.map((movie) => {
+        {
+          results.map((movie) => {
               return (
                 <div key={movie.id} className="card">
                   <img

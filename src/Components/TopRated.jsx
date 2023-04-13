@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Spinner from "./Spinner";
 
 const TopRated = () => {
   const [movies, setMovies] = useState([]);
-  const url = "https://api.themoviedb.org/3/movie/top_rated?api_key=";
+  const url = "https://api.themoviedb.org/3/tv/top_rated?api_key=";
   const apiKey = "aeeb61963da597e184eba3a9b3377487";
+  const [isLoading, setIsLoading] = useState(false);
 
   const getMovies = async () => {
+    setIsLoading(true);
     try {
       const res = await fetch(`${url}${apiKey}`);
       const data = await res.json();
+      setIsLoading(false);
       setMovies(data.results);
       console.log(data.results);
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
     }
   };
@@ -23,8 +28,9 @@ const TopRated = () => {
 
   return (
     <div>
-      <h2>Top Rated</h2>
+      <h2>Top Rated TV</h2>
       <div className="container">
+      {isLoading ? <Spinner /> : ""}
         {movies.map((movie) => {
           return (
             <div key={movie.id} className="card">
