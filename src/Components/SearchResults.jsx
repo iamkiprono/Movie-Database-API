@@ -11,7 +11,7 @@ const SearchResults = () => {
   const [movies, setMovies] = useState(true);
   const [series, setSeries] = useState(false);
 
-  const apiKey = "aeeb61963da597e184eba3a9b3377487";
+  const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -27,6 +27,7 @@ const SearchResults = () => {
         setResults(data.results);
       } catch (error) {
         console.log(error);
+        setIsLoading(false);
       }
     } else if (series) {
       try {
@@ -38,6 +39,7 @@ const SearchResults = () => {
         console.log(data.results);
         setResults(data.results);
       } catch (error) {
+        setIsLoading(false);
         console.log(error);
       }
     } else {
@@ -45,7 +47,8 @@ const SearchResults = () => {
     }
   };
   return (
-    <div>
+    <div className="search-results">
+
       <h2>Search results</h2>
       <form onSubmit={handleSubmit} className="search">
         <input
@@ -55,8 +58,8 @@ const SearchResults = () => {
         />
         <button type="submit">Search</button>
       </form>
-      <div className="container">
-        <input
+      <div className="checkboxes">
+      <input
           checked={movies}
           value={"movies"}
           type="checkbox"
@@ -64,7 +67,7 @@ const SearchResults = () => {
             setMovies(e.target.checked);
             setSeries(false);
           }}
-        />{" "}
+        />
         <label>Movies</label>
         <input
           checked={series}
@@ -74,9 +77,14 @@ const SearchResults = () => {
             setSeries(e.target.checked);
             setMovies(false);
           }}
-        />{" "}
+        />
         <label>TV Series</label>
+
+      </div>
         {isLoading ? <Spinner /> : ""}
+      <div className="container">
+        
+  
         {
           results.map((movie) => {
               return (

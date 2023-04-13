@@ -81,3 +81,13 @@ img {
 .search button, input{
   color: black;
 }
+.search-results{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.checkboxes{
+  margin-top: 10px;
+  padding: 10px;
+}

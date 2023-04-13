@@ -5,7 +5,7 @@ import Spinner from "./Spinner";
 const TopRated = () => {
   const [movies, setMovies] = useState([]);
   const url = "https://api.themoviedb.org/3/tv/top_rated?api_key=";
-  const apiKey = "aeeb61963da597e184eba3a9b3377487";
+  const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
   const [isLoading, setIsLoading] = useState(false);
 
   const getMovies = async () => {

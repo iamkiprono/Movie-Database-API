@@ -5,8 +5,9 @@ const MovieDetails = () => {
   const [details, setDetails] = useState({});
 
   const { id } = useParams();
-  console.log(id);
-  const url = `https://api.themoviedb.org/3/movie/${id}?api_key=aeeb61963da597e184eba3a9b3377487`;
+
+  const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
+  const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`;
 
   const getSingleMovie = async () => {
     try {
@@ -39,7 +40,9 @@ const MovieDetails = () => {
           <p>{details.release_date}</p>
           <p>{details.status}</p>
         </div>
-          <a target="_blank" href={details.homepage}>Visit </a>
+        <a target="_blank" href={details.homepage}>
+          Visit{" "}
+        </a>
       </div>
     </div>
   );
