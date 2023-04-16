@@ -6,6 +6,7 @@ const PopularMovies = () => {
   const url = "https://api.themoviedb.org/3/movie/popular?api_key=";
   const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
   const [isLoading, setIsLoading] = useState(false);
+  const [err, setErr] = useState("");
 
   const getMovies = async () => {
     setIsLoading(true);
@@ -17,6 +18,12 @@ const PopularMovies = () => {
       setMovies(data.results);
       setIsLoading(false);
     } catch (error) {
+      {
+        error.message == "Failed to fetch"
+          ? setErr("Server disconneted!")
+          : setErr(error.message);
+      }
+
       console.log(error);
       setIsLoading(false);
     }
@@ -29,6 +36,7 @@ const PopularMovies = () => {
     <div>
       <h2>Popular Movies</h2>
       <div className="container">
+        {err}
         {isLoading ? <Spinner /> : ""}
         {movies.map((movie) => {
           return (

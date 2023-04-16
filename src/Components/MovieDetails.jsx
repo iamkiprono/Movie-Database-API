@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom";
 const MovieDetails = () => {
   const [details, setDetails] = useState({});
 
+
   const { id } = useParams();
 
   const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;

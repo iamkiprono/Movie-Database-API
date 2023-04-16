@@ -7,7 +7,7 @@ const Navbar = () => {
       <nav>
         <div className="logo">
           <Link to="/">
-            <h2>KiBrono📽️ </h2>
+            <h2>BlobFlix📽️ </h2>
           </Link>
         </div>
         <div className="navlinks">
