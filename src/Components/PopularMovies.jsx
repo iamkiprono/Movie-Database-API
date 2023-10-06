@@ -13,7 +13,7 @@ const PopularMovies = () => {
     try {
       const res = await fetch(`${url}${apiKey}`);
       const data = await res.json();
-      console.log(data.results);
+      console.log(data);
 
       setMovies(data.results);
       setIsLoading(false);

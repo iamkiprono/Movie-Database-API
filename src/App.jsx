@@ -5,6 +5,7 @@ import TopRated from "./Components/TopRated";
 import Navbar from "./Components/Navbar";
 import MovieDetails from "./Components/MovieDetails";
 import SearchResults from "./Components/SearchResults";
+import Sports from "./Components/Sports";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="search" element={<SearchResults />} />
           <Route path="movies/:id" element={<MovieDetails />} />
           <Route path="toprated" element={<TopRated />} />
+          <Route path="sports" element={<Sports />} />
         </Routes>
       </BrowserRouter>
     </div>
