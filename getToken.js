@@ -1,7 +1,7 @@
 import { Buffer } from "buffer";
 
 const consumerKey = import.meta.env.VITE_REACT_APP_CONSUMER_KEY;
-const consumerSecret = import.meta.env.CONSUMER_SECRET;
+const consumerSecret = import.meta.env.VITE_REACT_APP_CONSUMER_SECRET;
 
 export const generateAccessToken = async () => {
   let buf = new Buffer.from(`${consumerKey}:${consumerSecret}`).toString(
