@@ -9,6 +9,7 @@ export const generateAccessToken = async () => {
   );
 
   // authentication string
+  
   let auth = `Basic ${buf}`;
   try {
     const response = await fetch(
